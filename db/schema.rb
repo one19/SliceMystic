@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529044229) do
+ActiveRecord::Schema.define(version: 20150529051304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pies", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "updates", force: :cascade do |t|
+    t.string   "title"
+    t.text     "url"
+    t.text     "content"
+    t.text     "image"
+    t.text     "tags"
+    t.integer  "website_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.text     "name"
@@ -22,6 +41,14 @@ ActiveRecord::Schema.define(version: 20150529044229) do
     t.string   "icon"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "websites", force: :cascade do |t|
+    t.text "name"
+    t.text "chunks"
+    t.text "icons"
+    t.text "meta"
+    t.text "url"
   end
 
 end
