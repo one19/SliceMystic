@@ -11,4 +11,6 @@
 #
 
 class Website < ActiveRecord::Base
+  has_and_belongs_to_many :pies
+  has_many :updates
 end
