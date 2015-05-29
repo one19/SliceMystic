@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150529054811) do
 
   create_table "pies_websites", id: false, force: :cascade do |t|
     t.integer "pie_id"
-    t.integer "user_id"
+    t.integer "website_id"
   end
 
   create_table "updates", force: :cascade do |t|
@@ -56,11 +56,13 @@ ActiveRecord::Schema.define(version: 20150529054811) do
   end
 
   create_table "websites", force: :cascade do |t|
-    t.text "name"
-    t.text "chunks"
-    t.text "icons"
-    t.text "meta"
-    t.text "url"
+    t.text     "name"
+    t.text     "chunks"
+    t.text     "icons"
+    t.text     "meta"
+    t.text     "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -6,7 +6,7 @@ class CreateWebsites < ActiveRecord::Migration
       t.text :icons
       t.text :meta
       t.text :url
-      t.timestamp
+      t.timestamps
     end
   end
 end
