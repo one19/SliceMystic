@@ -1,16 +1,49 @@
 # == Route Map
 #
-# You don't have any routes defined!
-#
-# Please add some routes in config/routes.rb.
-#
-# For more information about routes, see the Rails guide: http://guides.rubyonrails.org/routing.html.
+#       Prefix Verb   URI Pattern                  Controller#Action
+#         pies GET    /pies(.:format)              pies#index
+#              POST   /pies(.:format)              pies#create
+#      new_pie GET    /pies/new(.:format)          pies#new
+#     edit_pie GET    /pies/:id/edit(.:format)     pies#edit
+#          pie GET    /pies/:id(.:format)          pies#show
+#              PATCH  /pies/:id(.:format)          pies#update
+#              PUT    /pies/:id(.:format)          pies#update
+#              DELETE /pies/:id(.:format)          pies#destroy
+#     websites GET    /websites(.:format)          websites#index
+#              POST   /websites(.:format)          websites#create
+#  new_website GET    /websites/new(.:format)      websites#new
+# edit_website GET    /websites/:id/edit(.:format) websites#edit
+#      website GET    /websites/:id(.:format)      websites#show
+#              PATCH  /websites/:id(.:format)      websites#update
+#              PUT    /websites/:id(.:format)      websites#update
+#              DELETE /websites/:id(.:format)      websites#destroy
+#      updates GET    /updates(.:format)           updates#index
+#              POST   /updates(.:format)           updates#create
+#   new_update GET    /updates/new(.:format)       updates#new
+#  edit_update GET    /updates/:id/edit(.:format)  updates#edit
+#       update GET    /updates/:id(.:format)       updates#show
+#              PATCH  /updates/:id(.:format)       updates#update
+#              PUT    /updates/:id(.:format)       updates#update
+#              DELETE /updates/:id(.:format)       updates#destroy
+#        users GET    /users(.:format)             users#index
+#              POST   /users(.:format)             users#create
+#     new_user GET    /users/new(.:format)         users#new
+#    edit_user GET    /users/:id/edit(.:format)    users#edit
+#         user GET    /users/:id(.:format)         users#show
+#              PATCH  /users/:id(.:format)         users#update
+#              PUT    /users/:id(.:format)         users#update
+#              DELETE /users/:id(.:format)         users#destroy
+#         root GET    /                            pages#home
 #
 
 Rails.application.routes.draw do
-  get 'users/new'
 
-  get 'pages/home'
+  resources :pies
+  resources :websites
+  resources :updates
+  resources :users
+
+  root :to => 'pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

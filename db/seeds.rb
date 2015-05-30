@@ -11,8 +11,8 @@ Pie.destroy_all
 Website.destroy_all
 Update.destroy_all
 
-u1 = User.create(:name => 'Timmy', :email => 'maelstroswim@gmail.com', :icon => '192348483939', :password => 'butts', :password_confirmation => 'butts', :admin => false)
-u2 = User.create(:name => 'Benny', :email => 'gtechshowalter@gmail.com', :icon => '192348411939', :password => 'butts', :password_confirmation => 'butts', :admin => true)
+u1 = User.create(:name => 'drew', :email => 'maelstroswim@gmail.com', :icon => '192348483939', :password => 'butts', :password_confirmation => 'butts', :admin => false)
+u2 = User.create(:name => 'drew admin', :email => 'gtechshowalter@gmail.com', :icon => '192348411939', :password => 'butts', :password_confirmation => 'butts', :admin => true)
 
 w1 = Website.create(:name => 'Sinfest', :chunks => 'asdjfakjsdbbfdbadsfj<li>stuff</li>', :icons => 'junk, things, placessdfasdf.jpg', :meta => 'webcomic, funny, black-and-white', :url => 'http://sinfest.com')
 w2 = Website.create(:name => 'Dresden Codak', :chunks => 'asdjfakjsdbbfdbadsfj<li>stuff</li>', :icons => 'junadsfk, things, placessdfasddff.jpg', :meta => 'webcomic, drama, science', :url => 'http://dresdencodak.com')
