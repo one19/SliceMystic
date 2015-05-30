@@ -25,25 +25,37 @@
 #              PATCH  /updates/:id(.:format)       updates#update
 #              PUT    /updates/:id(.:format)       updates#update
 #              DELETE /updates/:id(.:format)       updates#destroy
+#   edit_users GET    /users/edit(.:format)        users#edit
 #        users GET    /users(.:format)             users#index
 #              POST   /users(.:format)             users#create
 #     new_user GET    /users/new(.:format)         users#new
-#    edit_user GET    /users/:id/edit(.:format)    users#edit
-#         user GET    /users/:id(.:format)         users#show
-#              PATCH  /users/:id(.:format)         users#update
+#         user PATCH  /users/:id(.:format)         users#update
 #              PUT    /users/:id(.:format)         users#update
 #              DELETE /users/:id(.:format)         users#destroy
 #         root GET    /                            pages#home
+#        login GET    /login(.:format)             session#new
+#              POST   /login(.:format)             session#create
+#              DELETE /login(.:format)             session#destroy
 #
 
 Rails.application.routes.draw do
 
+  get 'pages/home'
+
   resources :pies
   resources :websites
   resources :updates
-  resources :users
+  resources :users, :except => [:edit, :show] do
+    collection do
+      get '/edit' => 'users#edit'
+    end
+  end
 
   root :to => 'pages#home'
+
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'
+  delete '/login' => 'session#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

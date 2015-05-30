@@ -39,6 +39,8 @@ group :development do
   gem 'meta_request'
 end
 
+gem 'haml'
+gem 'nokogiri'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -8,7 +8,19 @@
 </head>
 <body>
 
-<%= yield %>
+  <nav>
+    <ul>
+      <li><%= link_to('Home', root_path) %></li>
 
+      <% if flash[:notice].present? %>
+        <h2><%= flash[:notice] %></h2>
+      <% end %>
+      
+      <%== intellinav %>
+    </ul>
+  </nav>
+
+  <%= yield %>
+  
 </body>
 </html>
