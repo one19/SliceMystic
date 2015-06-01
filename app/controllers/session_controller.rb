@@ -13,7 +13,7 @@ class SessionController < ApplicationController
     else
       flash[:notice] = "Invalid login, please try again"
       #flash is a mayfly variable, it only lasts a single page woooohooooooooo
-      redirect_to login_path
+      redirect_to root_path
     end
   end
 

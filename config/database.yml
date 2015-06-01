@@ -23,6 +23,8 @@ default: &default
 
 development:
   <<: *default
+  # username: werd119
+  # host: localhost
   database: SliceMystic_development
 
   # The specified database role being used to connect to postgres.
