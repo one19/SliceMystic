@@ -1,6 +1,7 @@
 # == Route Map
 #
 #       Prefix Verb   URI Pattern                  Controller#Action
+#   pages_home GET    /pages/home(.:format)        pages#home
 #         pies GET    /pies(.:format)              pies#index
 #              POST   /pies(.:format)              pies#create
 #      new_pie GET    /pies/new(.:format)          pies#new

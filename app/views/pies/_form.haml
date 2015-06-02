@@ -1,0 +1,20 @@
+= form_for @pie do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+
+  %p
+    = f.label :description
+    = f.text_area :description, :size => "20x5"
+
+  - @genres.each do |gen|
+    %h2= gen.capitalize
+    - @wids = []
+    - @wanes = []
+    - webs = @websites.select { |web| web.meta.include? gen }
+    - webs.each { |web| @wids.append(web.id) }
+    - webs.each { |web| @wanes.append(web.name) }
+    %p
+      = f.collection_check_boxes(:website_ids, webs, :id, :name)
+  %p
+    = f.submit

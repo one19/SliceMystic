@@ -12,6 +12,7 @@ def intellinav
     end
 
     if @current_user.present?
+      nav += '<li>' + link_to("My Pies", '/pies') + '</li>'
       nav += '<li>' + link_to("Edit profile", edit_users_path(@current_user)) + '</li>'
       nav += '<li>' + link_to("Log out #{ @current_user.name }", login_path, :method => :delete) + '</li>'
     else

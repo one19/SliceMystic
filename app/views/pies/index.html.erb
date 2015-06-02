@@ -1,2 +1,10 @@
-<h1>Pies#index</h1>
-<p>Find me in app/views/pies/index.html.erb</p>
+<h1>Your Pies</h1>
+<p>Manage the pies you're eating: </p>
+
+<% @pies.each do |pie| %>
+  <div class=<%="#{pie.id}"%>>
+    <%= link_to(pie.name,  "/pies/#{pie.id}") %>
+    <%= link_to("Edit",  "/pies/#{pie.id}/edit") %>
+    <%= link_to('Delete', pie, :method => 'delete', :data => {:confirm => 'Are you sure?'}) %>
+  </div>
+<% end %>
