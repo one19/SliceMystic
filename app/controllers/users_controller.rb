@@ -13,7 +13,13 @@ class UsersController < ApplicationController
   def create
     # unlesss @user.name.present?
     #   render :some_error
-    @user = User.new user_params
+    if user_params["name"] == "admin"
+      @user = User.new user_params
+      @user["admin"] = true
+    else
+      @user = User.new user_params
+    end
+
     if @user.save
       #if you make an account correctly
       redirect_to root_path

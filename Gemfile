@@ -42,6 +42,7 @@ end
 
 gem 'haml'
 gem 'nokogiri'
+gem 'open_uri'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
