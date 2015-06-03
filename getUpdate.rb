@@ -43,10 +43,10 @@ tags = nil
 
 #guardian world news
 doc = Nokogiri::HTML(open("http://www.theguardian.com/world"))
-'doc.css("div.fc-item__content a")[0].inner_text###doc.css("div.fc-item__content a")[0]["href"]###doc.css("div.fc-item__media-wrapper img")[0]["src"][2..-1]###nil###nil'
+'doc.css("div.fc-item__content a")[0].inner_text###doc.css("div.fc-item__content a")[0]["href"]###"http://www.".concat(doc.css("div.fc-item__media-wrapper img")[0]["src"][2..-1])###nil###nil'
 title = doc.css("div.fc-item__content a")[0].inner_text
 url = doc.css("div.fc-item__content a")[0]["href"]
-img = doc.css("div.fc-item__media-wrapper img")[0]["src"][2..-1]
+img = "http://www.".concat(doc.css("div.fc-item__media-wrapper img")[0]["src"][2..-1])
 content = nil
 tags = nil
 

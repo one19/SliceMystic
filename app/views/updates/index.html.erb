@@ -6,6 +6,6 @@
   <ul class=<%="#{ups.id}"%>>
     <li><%= "#{ups.title}" %></li>
     <li><%= link_to('Edit', "updates/#{ups.id}/edit") %>
-    <li><%= link_to('Delete', ups, :method => 'destroy', :data => {:confirm => 'Are you sure?'}) %></li>
+    <li><%= link_to('Delete', ups, :method => 'delete', :data => {:confirm => 'Are you sure?'}) %></li>
   </ul>
 <% end %>
