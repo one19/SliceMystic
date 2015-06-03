@@ -1,0 +1,5 @@
+%ol
+  - @pies.each do |pie|
+    %li
+      = pie.name
+      = link_to('Delete', pie, :method => 'delete', :data => {:confirm => 'Are you sure?'})

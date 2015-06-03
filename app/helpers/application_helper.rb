@@ -5,10 +5,10 @@ def intellinav
     nav = ''
 
     if @current_user.present? && @current_user.admin?
-      nav += '<li>' +  link_to('Show users', users_path) + '</li>'
-      #nav += '<li>' + link_to('Admin Pie Tab', pies_path) + '</li>'
-      #nav += '<li>' + link_to('Admin Website Tab'), websites_path) + '</li>'
-      #nav += '<li>' + link_to('Admin Update Tab'), updates_path) + '</li>'
+      nav += '<li>' +  link_to('Show Users', users_path) + '</li>'
+      nav += '<li>' + link_to('Show Pies', '/pies/admin') + '</li>'
+      nav += '<li>' + link_to('Show Websites', '/websites') + '</li>'
+      nav += '<li>' + link_to('Show Updates', '/updates') + '</li>'
     end
 
     if @current_user.present?

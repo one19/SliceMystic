@@ -1,0 +1,30 @@
+<%= form_for @website do |f| %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :chunks %>
+    <%= f.text_field :chunks %>
+  </p>
+
+  <p>
+    <%= f.label :meta %>
+    <%= f.text_field :meta %>
+  </p>
+
+  <p>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </p>
+
+  <p>
+    <%= f.label :icons %>
+    <%= f.text_field :icons %>
+  </p>
+  
+  <%= f.submit %>
+  
+<% end %>

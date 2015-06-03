@@ -1,2 +1,11 @@
-<h1>Websites#index</h1>
-<p>Find me in app/views/websites/index.html.erb</p>
+<li><%= link_to('New Website', 'websites/new') %></li>
+
+<h2>All Websites</h2>
+
+<% @websites.each do |web| %>
+  <ul>
+    <li><%= link_to(web.name, web) %></li>
+    <li><%= link_to('Edit', "websites/#{web.id}/edit") %>
+    <li><%= link_to('Delete', @web, :method => 'delete', :data => {:confirm => 'Are you sure?'}) %></li>
+  </ul>
+<% end %>

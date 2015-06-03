@@ -43,9 +43,11 @@ Rails.application.routes.draw do
 
   get 'pages/home'
 
+  get 'pies/admin' => 'pies/admin'
   resources :pies
+
   resources :websites
-  resources :updates
+  resources :updates, :except => [:show]
   resources :users, :except => [:edit, :show] do
     collection do
       get '/edit' => 'users#edit'

@@ -1,3 +1,5 @@
 %ol
   - @users.each do |user|
-    %li= user.name
+    %li
+      = user.name
+      = link_to('Delete', user, :method => 'delete', :data => {:confirm => 'Are you sure?'})

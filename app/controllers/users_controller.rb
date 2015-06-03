@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
- before_action :check_if_admin, :only => [:index] #could add methods like destroy if they're present
+ before_action :check_if_admin, :only => [:index, :destroy] #could add methods like destroy if they're present
 
   def index
     #only used by admins
@@ -40,6 +40,12 @@ class UsersController < ApplicationController
     user = @current_user
     user.update user_params
     redirect_to root_path
+  end
+
+  def destroy
+    user = User.find params[:id]
+    user.destroy
+    redirect_to users_path
   end
 
   private

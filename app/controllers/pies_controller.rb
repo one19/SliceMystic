@@ -4,6 +4,11 @@ class PiesController < ApplicationController
     @pies = @current_user.pies
   end
 
+  def admin
+    @pies = Pie.all
+    @users = User.all
+  end
+
   def create
     wids = params["pie"]["website_ids"].uniq!.reject! { |c| c.empty? }
     # raise params.inspect
@@ -60,7 +65,11 @@ class PiesController < ApplicationController
   def destroy
     pie = Pie.find params[:id]
     pie.destroy
-    redirect_to pies_path
+    if @current_user.admin == true
+      redirect_to 'pies/admin'
+    else
+      redirect_to pies_path
+    end
   end
 
   private

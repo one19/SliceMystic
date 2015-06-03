@@ -1,0 +1,35 @@
+<%= form_for @update do |f| %>
+
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :url %>
+    <%= f.url_field :url %>
+  </p>
+
+  <p>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </p>
+
+  <p>
+    <%= f.label :image %>
+    <%= f.url_field :image %>
+  </p>
+
+  <p>
+    <%= f.label :tags %>
+    <%= f.text_field :tags %>
+  </p>
+
+  <p>
+    <%= f.label :website_id %>
+    <%= f.select :website_id, Website.all.map { |web| [web.name, web.id] }, :include_blank => :true  %>
+  </p>
+  
+  <%= f.submit %>
+  
+<% end %>
