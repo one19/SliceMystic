@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   resources :pies
 
   resources :websites
+  get 'websites/:id/upmaker' => 'websites#upmaker'
   resources :updates, :except => [:show]
   resources :users, :except => [:edit, :show] do
     collection do

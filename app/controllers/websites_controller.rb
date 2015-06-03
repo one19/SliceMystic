@@ -11,6 +11,29 @@ class WebsitesController < ApplicationController
     redirect_to website
   end
 
+  def upmaker
+    require 'open-uri'
+    website = Website.find params[:id]
+    upmap = website.updates.map { |x| x.url }
+    update = Update.new
+    doc = Nokogiri::HTML(open("#{website.url}"))
+    runs = website.chunks.split('###')
+    update.title = eval runs[0]
+    update.url = eval runs[1]
+    update.image = eval runs[2]
+    update.content = eval runs [3]
+    update.tags = eval runs[4]
+    update.website_id = website.id
+    # raise params.inspect
+    if upmap.include? update.url
+      update.destroy
+    else
+      update.save
+    end
+    redirect_to websites_path
+    # render :new
+  end
+
   def new
     @website = Website.new
   end

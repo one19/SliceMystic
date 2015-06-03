@@ -3,9 +3,10 @@
 <h2>All Websites</h2>
 
 <% @websites.each do |web| %>
-  <ul>
+  <ul class=<%="#{web.id}"%>>
     <li><%= link_to(web.name, web) %></li>
     <li><%= link_to('Edit', "websites/#{web.id}/edit") %>
+    <li><%= link_to('Update Check', "websites/#{web.id}/upmaker") %></li>
     <li><%= link_to('Delete', @web, :method => 'delete', :data => {:confirm => 'Are you sure?'}) %></li>
   </ul>
 <% end %>
