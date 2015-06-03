@@ -8,7 +8,7 @@ class UpdatesController < ApplicationController
 
   def create
     update = Update.create update_params
-    redirect_to update
+    redirect_to updates_path
   end
 
   def new

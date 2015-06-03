@@ -8,7 +8,7 @@ class WebsitesController < ApplicationController
 
   def create
     website = Website.create website_params
-    redirect_to website
+    redirect_to websites_path
   end
 
   def upmaker
