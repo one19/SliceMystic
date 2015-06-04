@@ -25,6 +25,7 @@ class UpdatesController < ApplicationController
   end
 
   def update
+    raise params.inspect
     update = Update.find params[:id]
     update.update update_params
     redirect_to updates_path
