@@ -1,30 +1,32 @@
-<%= form_for @website do |f| %>
-
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.label :chunks %>
-    <%= f.text_field :chunks %>
-  </p>
-
-  <p>
-    <%= f.label :meta %>
-    <%= f.text_field :meta %>
-  </p>
-
-  <p>
-    <%= f.label :url %>
-    <%= f.text_field :url %>
-  </p>
-
-  <p>
-    <%= f.label :icons %>
-    <%= f.text_field :icons %>
-  </p>
+<%= form_for @website, :class => 'form-inline' do |f| %>
   
-  <%= f.submit %>
+  <p class="form-spacer"></p>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, :autofocus => true, , :class =>'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :chunks %>
+    <%= f.text_area :chunks, :size => "25x5", :class =>'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :meta %>
+    <%= f.text_field :meta, :class =>'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :url %>
+    <%= f.text_field :url, :class =>'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :icons %>
+    <%= f.text_field :icons, :class =>'form-control' %>
+  </div>
+  
+  <%= f.submit :class => 'btn btn-primary' %>
   
 <% end %>
