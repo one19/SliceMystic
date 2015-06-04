@@ -65,11 +65,7 @@ class PiesController < ApplicationController
   def destroy
     pie = Pie.find params[:id]
     pie.destroy
-    if @current_user.admin == true
-      redirect_to 'pies/admin'
-    else
-      redirect_to pies_path
-    end
+    redirect_to pies_path
   end
 
   private
