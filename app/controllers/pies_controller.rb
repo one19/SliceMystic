@@ -47,7 +47,7 @@ class PiesController < ApplicationController
     @pie.websites.uniq.each do |site|
       @all_ups.concat(site.updates.all.uniq)
     end
-    @all_ups = @all_ups.sort_by { |a| (a.updated_at) }
+    @all_ups.reverse!
     @websites = @pie.websites.all
   end
 

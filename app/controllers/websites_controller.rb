@@ -1,6 +1,6 @@
 class WebsitesController < ApplicationController
 
-  before_action :check_if_admin
+  before_action :check_if_admin, :except => [:singlemaker, :upmaker, :allmaker]
 
   def index
     @websites = Website.all
