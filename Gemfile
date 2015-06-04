@@ -41,6 +41,7 @@ group :development do
 end
 
 gem 'haml'
+gem 'bootstrap-sass'
 gem 'nokogiri'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
