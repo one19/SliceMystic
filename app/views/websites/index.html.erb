@@ -1,5 +1,5 @@
 <li><%= link_to('New Website', 'websites/new') %></li>
-<li><%= link_to('Check all for updates', 'websites/upall') %></li>
+<li><%= link_to('Check all for updates', 'websites/allmaker') %></li>
 
 <h2>All Websites</h2>
 
@@ -7,7 +7,7 @@
   <ul class=<%="#{web.id}"%>>
     <li><%= "#{web.name}" %></li>
     <li><%= link_to('Edit', "websites/#{web.id}/edit") %>
-    <li><%= link_to('Update Check', "websites/#{web.id}/upmaker") %></li>
+    <li><%= link_to('Update Check', "websites/#{web.id}/singlemaker") %></li>
     <li><%= link_to('Delete', web, :method => 'delete', :data => {:confirm => 'Are you sure?'}) %></li>
   </ul>
 <% end %>

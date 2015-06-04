@@ -13,7 +13,7 @@ class WebsitesController < ApplicationController
 
   def upmaker
     require 'open-uri'
-    website = Website.find params[:id]
+    website = @website
     upmap = website.updates.map { |x| x.url }
     update = Update.new
     doc = Nokogiri::HTML(open("#{website.url}"))
@@ -30,8 +30,20 @@ class WebsitesController < ApplicationController
     else
       update.save
     end
+  end
+
+  def singlemaker
+    @website = Website.find params[:id]
+    upmaker
     redirect_to websites_path
-    # render :new
+  end
+
+  def allmaker
+    Website.all.each do |website|
+      @website = website
+      upmaker
+    end
+    redirect_to websites_path
   end
 
   def new
