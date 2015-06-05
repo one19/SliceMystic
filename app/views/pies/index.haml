@@ -1,0 +1,10 @@
+%li= link_to('New Pie', 'pies/new')
+
+%h1 Your Pies
+%p Manage the pies you're eating:
+
+- @pies.each do |pie|
+  %ul.pie
+    %li= link_to(pie.name,  "/pies/#{pie.id}")
+    %li= link_to("Edit",  "/pies/#{pie.id}/edit")
+    %li= link_to('Delete', pie, :method => 'delete', :data => {:confirm => 'Are you sure?'})

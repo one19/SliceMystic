@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   resources :websites
   get 'websites/:id/singlemaker' => 'websites#singlemaker'
   get 'websites/:id/upmaker' => 'websites#upmaker'
+  
   resources :updates, :except => [:show]
   resources :users, :except => [:edit, :show] do
     collection do

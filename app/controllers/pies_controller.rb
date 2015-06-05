@@ -56,7 +56,7 @@ class PiesController < ApplicationController
     pie.websites = []
 
     wids = params["pie"]["website_ids"].uniq!.reject! { |c| c.empty? }
-    wids.each { |w| Pie.last.websites << (Website.find w) }
+    wids.each { |w| Pie.find(pie.id).websites << (Website.find w) }
 
     pie.update pie_params
     redirect_to pie

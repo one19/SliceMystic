@@ -21,7 +21,7 @@ class WebsitesController < ApplicationController
     update.title = eval runs[0]
     update.url = eval runs[1]
     update.image = eval runs[2]
-    update.content = eval runs [3]
+    update.content = eval runs[3]
     update.tags = eval runs[4]
     update.website_id = website.id
     # raise params.inspect

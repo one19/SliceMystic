@@ -1,6 +1,5 @@
-%p.form-spacer
 %div.form-inline
-    - @users.each do |user|
-      %div.form-group
-        %p.form-control= user.name
-        %p= link_to('Delete', user, :method => 'delete', :data => {:confirm => 'Are you sure?'})
+  - @users.each do |user|
+    %div.form-group
+      %p= user.name
+      %p= link_to('Delete', user, :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'btn btn-default')

@@ -8,6 +8,7 @@
 
 body {
   background-color: #cccccc;
+  padding-top: 70px;
 }
 
 nav {
@@ -24,14 +25,24 @@ nav a:hover {
   color: #000000;
 }
 
+nav li.btn-default {
+  padding: 0;
+  margin-top: 2px;
+}
+
+nav label {
+  font-size: 14px;
+}
+
 .form-inline {
   margin-top: 40px;
 }
 .container {
   background-color: #222222;
   color: #ffffff;
+  padding: 8px;
+  padding-left: 12px;
   border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
 }
 
 .update {
