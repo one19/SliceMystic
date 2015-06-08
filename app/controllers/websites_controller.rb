@@ -52,7 +52,7 @@ class WebsitesController < ApplicationController
 
   def edit
     @website = Website.find params[:id]
-    render :new
+    render :edit
   end
 
   def show

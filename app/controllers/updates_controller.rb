@@ -17,7 +17,7 @@ class UpdatesController < ApplicationController
 
   def edit
     @update = Update.find params[:id]
-    render :new
+    render :edit
   end
 
   def show
@@ -25,7 +25,6 @@ class UpdatesController < ApplicationController
   end
 
   def update
-    raise params.inspect
     update = Update.find params[:id]
     update.update update_params
     redirect_to updates_path
@@ -38,7 +37,7 @@ class UpdatesController < ApplicationController
   end
 
   private
-  def updates_params
+  def update_params
     params.require(:update).permit(:title, :content, :image, :tags, :url, :website_id)
   end
   def check_if_admin

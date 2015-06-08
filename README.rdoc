@@ -1,21 +1,27 @@
-* Ruby version
-
-
-* System dependencies
-
-
-* Configuration
-
 
 * Database creation
-  -
+  - rake db:migrate sets up the database. It contains 4 models; users, websites (websites are entered into the database only by the admin), pies (collections of websites made by the users), and updates (a scraping of information from the websites, generated procedurally and periodically by the server, and the rules inherent in the 'chunks' class of each website db element)
 
 * Database initialization
-
-* How to run the test suite
+ - the seed data sets up four nonfunctional websites, as well as several non-admin users. It mainly shows that the app can work, given this set of data (but update functionality will throw up errors.)
+ - First, set up an admin account (username must be admin) with your own password, and this will lock out anyone else from being admin,
+ - Then, edit each website, possibly using the getUpdate.rb file found in this directory (using the admin account & web interface for quick usability). It gives valid 'chunks' strings that won't throw errors anymore. Remove other users.
 
 * Services (job queues, cache servers, search engines, etc.)
-  - On heroku, create a task that executes "rake "
+  - On heroku, create a task that executes "rake allmaker" every 10 minutes (or slower, depending on your preference). This will execute the allmaker command in the websites controller, and generate update content for every website that has been entered into the db.
 
 
 * Deployment instructions
+- after these things have been set up, the web-scraper will be running for your websites! Aggregate data will display for everyone, and customized data will display for users based on which pies they have created. No further setup is required.
+
+If you wish to set up other websites, the 'chunks' element is the path to doing so.
+The chunks string has 5 parts, separated by '###'. Each part is evaluated by the server to serve content.
+Nokogiri scraping is done by these 5 parts, and is simply a set of CSS selectors that gets the relevant content for the website url. (nokogiri first saves the site at the url as 'doc')
+The order is as follows:
+0: title -- Scraped title for the update content
+1: url -- scraped url for the update content (unique)
+2: image -- scraped image that will be displayed on the SliceMystic website
+3: content -- textual content that replaces the image if there is no image (can be small tags, or larger text summary)
+4: tags -- meta-tags that are optionally included in some websites
+
+Simply enter the nokogiri CSS selector commands for scraping each of these items, followed by '###' to create new working websites.
